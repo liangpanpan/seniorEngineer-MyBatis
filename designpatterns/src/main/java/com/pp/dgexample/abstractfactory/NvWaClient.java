@@ -6,7 +6,7 @@ package com.pp.dgexample.abstractfactory;
  * @Author ppliang
  * @Date 2020/3/7
  */
-public class NvWa {
+public class NvWaClient {
     public static void main(String[] args) {
         //第一条生产线，男性生产线
         HumanFactory maleHumanFactory = new MaleFactory();

@@ -6,7 +6,7 @@ package com.pp.dgexample.singleton;
  * @Author ppliang
  * @Date 2020/3/7
  */
-public class Minister {
+public class MinisterClient {
     public static void main(String[] args) {
         for (int day = 0; day < 3; day++) {
             Emperor emperor = Emperor.getInstance();

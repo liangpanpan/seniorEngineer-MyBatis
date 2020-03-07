@@ -6,7 +6,7 @@ package com.pp.dgexample.factory;
  * @Author ppliang
  * @Date 2020/3/7
  */
-public class NvWa {
+public class NvWaClient {
     public static void main(String[] args) {
         //声明阴阳八卦炉
         AbstractHumanFactory humanFactory = new HumanFactory();
