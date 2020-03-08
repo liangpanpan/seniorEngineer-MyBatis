@@ -7,6 +7,7 @@ package com.gc.dgmodel.builder;
  * @Date 2020/3/7
  */
 public class Product {
+
     public void doSomething() {
         //独立业务处理
         System.out.println("Product doSomething");
