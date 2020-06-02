@@ -5,3 +5,5 @@ this is git test-project
 
 test 1
 test 2
+
+修改为SSH进行提交
