@@ -12,6 +12,7 @@
     <modules>
         <module>designpatterns</module>
         <module>test-project</module>
+		<module>spring-basic</module>
     </modules>
 
 
