@@ -1,4 +1,6 @@
-package basic01.servcie;
+package basic01.dao;
+
+import basic01.entify.User;
 
 /**
  * <pre>
@@ -9,5 +11,8 @@ package basic01.servcie;
  * liangpanpan   2020/9/7       create this file
  * </pre>
  */
-public interface UserService {
+public interface IUserDao {
+
+    void getUser();
+
 }
