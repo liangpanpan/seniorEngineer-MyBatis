@@ -1,7 +1,5 @@
 package basic01.dao;
 
-import basic01.entify.User;
-
 /**
  * <pre>
  * @Version 1.0
