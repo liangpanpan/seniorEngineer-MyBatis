@@ -1,7 +1,7 @@
-package basic01.server.impl;
+package com.basic01.server.impl;
 
-import basic01.dao.IUserDao;
-import basic01.server.IUserService;
+import com.basic01.dao.IUserDao;
+import com.basic01.server.IUserService;
 
 /**
  * <pre>

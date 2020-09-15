@@ -1,4 +1,6 @@
-package basic01.dao;
+package com.basic01.dao.impl;
+
+import com.basic01.dao.IUserDao;
 
 /**
  * <pre>
@@ -9,8 +11,10 @@ package basic01.dao;
  * liangpanpan   2020/9/7       create this file
  * </pre>
  */
-public interface IUserDao {
+public class UserDaoImpl implements IUserDao {
 
-    void getUser();
-
+    @Override
+    public void getUser() {
+        System.out.println("查询User信息");
+    }
 }

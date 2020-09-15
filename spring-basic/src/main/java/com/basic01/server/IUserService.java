@@ -1,4 +1,4 @@
-package basic01.server;
+package com.basic01.server;
 
 /**
  * <pre>

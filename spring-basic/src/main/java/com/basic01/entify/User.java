@@ -1,4 +1,4 @@
-package basic01.entify;
+package com.basic01.entify;
 
 /**
  * <pre>
