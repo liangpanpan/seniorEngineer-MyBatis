@@ -15,6 +15,7 @@
 		<module>spring-basic</module>
 		<module>springboot-demo-simple01</module>
         <module>spring_ioc_annotation</module>
+        <module>test-mybatis</module>
     </modules>
 
     <parent>
