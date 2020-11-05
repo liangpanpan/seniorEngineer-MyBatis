@@ -1,0 +1,20 @@
+#服务信息
+server:
+  info: liangpanpan
+  port: 8081
+
+# redis
+spring:
+  redis:
+    database: 0
+    timeout: 5000
+    password: liangpan
+    cluster:
+      nodes: 49.232.17.193:8001,49.232.17.193:8002,49.232.17.193:8003,49.232.17.193:8004,49.232.17.193:8005,49.232.17.193:8006
+    lettuce:
+      pool:
+        max-active: 100
+        min-idle: 10
+        max-idle: 50
+        max-wait: 1000
+
