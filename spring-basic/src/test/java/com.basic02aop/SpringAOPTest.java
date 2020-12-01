@@ -26,6 +26,15 @@ public class SpringAOPTest {
     }
 
 
+    /**
+     * 打印的结果信息为：
+     * @Before：切点方法之前执行.....
+     * 访问获取User信息
+     * @After：切点方法之后执行.....
+     * @AfterReturning：切点方法返回后执行.....
+     * 返回值：User{id=2, name='梁盼盼', age=34}
+     * User{id=2, name='梁盼盼', age=34}
+     */
     @Test
     public void testAop01() {
         IUserService bean = aop.getBean(IUserService.class);

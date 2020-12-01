@@ -16,6 +16,7 @@
 		<module>springboot-demo-simple01</module>
         <module>spring_ioc_annotation</module>
         <module>test-mybatis</module>
+        <module>spring-rabbitmq</module>
     </modules>
 
     <parent>
