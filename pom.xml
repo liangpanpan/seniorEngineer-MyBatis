@@ -12,11 +12,13 @@
     <modules>
         <module>designpatterns</module>
         <module>test-project</module>
-		<module>spring-basic</module>
-		<module>springboot-demo-simple01</module>
+        <module>spring-basic</module>
+        <module>springboot-demo-simple01</module>
         <module>spring_ioc_annotation</module>
         <module>test-mybatis</module>
         <module>spring-rabbitmq</module>
+        <module>springboot-mq-producer</module>
+        <module>springboot-mq-consumer</module>
     </modules>
 
     <parent>
