@@ -19,7 +19,15 @@ import java.io.IOException;
 @Component
 public class RabbitMQListener {
 
-    @RabbitListener(queues = "direct_queue")
+    /**
+     * queues: 队列名称
+     * concurrency 接收最小2个消息，最大4个消息
+     *
+     * @param message
+     * @param channel
+     * @throws IOException
+     */
+    @RabbitListener(queues = "direct_queue", concurrency = "2-4")
     public void getRabbitMQMessage(Message message, Channel channel) throws IOException {
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), true);
         System.out.println(("MQ接收到的消息： " + new String(message.getBody())));

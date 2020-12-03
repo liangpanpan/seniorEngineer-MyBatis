@@ -12,3 +12,5 @@ spring:
         acknowledge-mode: manual
       simple:
         acknowledge-mode: manual
+        concurrency: 1
+        max-concurrency: 2
