@@ -7,3 +7,5 @@ spring:
     username: liangpan
     password: 123456
     virtual-host: guxingyuan
+    publisher-returns: true
+    publisher-confirms: true

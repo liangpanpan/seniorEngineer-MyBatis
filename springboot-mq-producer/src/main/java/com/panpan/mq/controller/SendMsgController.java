@@ -1,11 +1,15 @@
 package com.panpan.mq.controller;
 
 import com.panpan.mq.config.RabbitMQConfig;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
 
 /**
  * <pre>
@@ -23,6 +27,10 @@ public class SendMsgController {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
+    @Autowired
+    private AmqpTemplate amqpTemplate;
+
+
     /**
      * 测试
      */
@@ -34,8 +42,39 @@ public class SendMsgController {
          * 参数二：路由key: item.springboot-rabbitmq,符合路由item.#规则即可
          * 参数三：发送的消息
          */
-        rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE, key, msg);
+        CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
+        rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE, RabbitMQConfig.BINDING_KEY,
+                msg + "key:" + key, correlationData);
         //返回消息
         return "发送消息成功！";
     }
+
+    /**
+     * 路由Key失败
+     *
+     * @param msg
+     * @param key
+     * @return
+     */
+    @GetMapping("/sendReturnmsg")
+    public String sendReturnMsg(@RequestParam String msg, @RequestParam String key) {
+
+        rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE, key,
+                msg);
+        //返回消息
+        return "发送消息到MQ上，队列错误！";
+    }
+
+
+    @GetMapping("/sendConfirmMsg")
+    public String sendConfirmMsg(@RequestParam String msg, @RequestParam String key) {
+        /**
+         * 交换机错误
+         */
+        rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE + "1", key,
+                msg);
+        //返回消息
+        return "发送消息到MQ上，交换机错误！";
+    }
+
 }

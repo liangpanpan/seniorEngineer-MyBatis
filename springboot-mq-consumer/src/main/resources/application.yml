@@ -1,7 +1,9 @@
+server:
+  port: 9999
 spring:
   rabbitmq:
     host: 49.232.17.193
     port: 5672
     username: liangpan
     password: 123456
-    virtual-host: /guxingyuan
+    virtual-host: guxingyuan
