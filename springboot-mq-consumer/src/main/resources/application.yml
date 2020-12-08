@@ -8,9 +8,10 @@ spring:
     password: 123456
     virtual-host: guxingyuan
     listener:
-      direct:
-        acknowledge-mode: manual
       simple:
-        acknowledge-mode: manual
-        concurrency: 1
-        max-concurrency: 2
+        acknowledge-mode: manual  #采用手工确认模式
+        prefetch: 20  # 配置Prefetch count数值
+        concurrency: 5  #指定最小的消费数量，程序中优先
+        max-concurrency: 50  #制定最大的消费数量
+        retry:
+          enabled: true # 是否支持重试

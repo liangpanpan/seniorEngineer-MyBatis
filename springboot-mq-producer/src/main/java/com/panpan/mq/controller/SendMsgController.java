@@ -49,6 +49,25 @@ public class SendMsgController {
         return "发送消息成功！";
     }
 
+
+    @GetMapping("/sendBatchMsg")
+    public String sendBatchMsg(@RequestParam String msg, @RequestParam Integer batchNum) {
+        /**
+         * 发送消息
+         * 参数一：交换机名称
+         * 参数二：路由key: item.springboot-rabbitmq,符合路由item.#规则即可
+         * 参数三：发送的消息
+         */
+
+        for (int i = 0; i < batchNum; i++) {
+            CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
+            rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE, RabbitMQConfig.BINDING_KEY,
+                    msg + " num:" + i, correlationData);
+        }
+        //返回消息
+        return "发送消息成功！";
+    }
+
     /**
      * 路由Key失败
      *

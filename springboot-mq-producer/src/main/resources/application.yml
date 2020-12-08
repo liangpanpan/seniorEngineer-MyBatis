@@ -7,5 +7,7 @@ spring:
     username: liangpan
     password: 123456
     virtual-host: guxingyuan
+    #开启发送失败退回 到达不了队列
     publisher-returns: true
+    # 开启发送确认 到达交换机
     publisher-confirms: true

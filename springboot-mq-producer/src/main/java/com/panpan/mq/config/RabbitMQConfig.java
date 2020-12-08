@@ -39,8 +39,13 @@ public class RabbitMQConfig {
 
     public static final String DIRECT_QUEUE = "direct_queue";
 
-    @Bean("bootExchange")
-    public Exchange bootExchange() {
+    /**
+     * 创建直接交换机
+     *
+     * @return
+     */
+    @Bean("directExchange")
+    public Exchange directExchange() {
 
         /**
          * 创建交换机
@@ -64,13 +69,13 @@ public class RabbitMQConfig {
      *
      * @return
      */
-    @Bean("bootQueue")
-    public Queue bootQueue() {
+    @Bean("directQueue")
+    public Queue directQueue() {
         return QueueBuilder.durable(DIRECT_QUEUE).build();
     }
 
     @Bean
-    public Binding bindingQueue(@Qualifier("bootExchange") Exchange exchange, @Qualifier("bootQueue") Queue queue) {
+    public Binding bindingQueue(@Qualifier("directExchange") Exchange exchange, @Qualifier("directQueue") Queue queue) {
         return BindingBuilder.bind(queue).to(exchange).with(BINDING_KEY).noargs();
     }
 

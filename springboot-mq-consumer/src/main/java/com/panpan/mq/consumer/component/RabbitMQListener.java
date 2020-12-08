@@ -1,8 +1,11 @@
 package com.panpan.mq.consumer.component;
 
 import com.rabbitmq.client.Channel;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.support.AmqpHeaders;
+import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -16,6 +19,7 @@ import java.io.IOException;
  * liangpanpan   2020/12/3       create this file
  * </pre>
  */
+@Slf4j
 @Component
 public class RabbitMQListener {
 
@@ -27,10 +31,24 @@ public class RabbitMQListener {
      * @param channel
      * @throws IOException
      */
-    @RabbitListener(queues = "direct_queue", concurrency = "2-4")
-    public void getRabbitMQMessage(Message message, Channel channel) throws IOException {
-        channel.basicAck(message.getMessageProperties().getDeliveryTag(), true);
-        System.out.println(("MQ接收到的消息： " + new String(message.getBody())));
+    // @RabbitListener(queues = "direct_queue")
+    @RabbitListener(queues = "direct_queue", concurrency = "10")
+    // @RabbitListener(queues = "direct_queue", concurrency = "5", containerFactory = "mqlistenerContainer")
+    public void getRabbitMQMessage(Message message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException, InterruptedException {
+
+        String messageStr = new String(message.getBody(), "UTF-8");
+
+        log.info("receive message:" + messageStr + " tag:" + tag);
+
+        if ("1".equals(messageStr)) {
+            // 当消息为1时不进行消费
+            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+        } else {
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+        }
+
+        Thread.sleep(1000);
+
     }
 
 }
