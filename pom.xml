@@ -19,6 +19,7 @@
         <module>spring-rabbitmq</module>
         <module>springboot-mq-producer</module>
         <module>springboot-mq-consumer</module>
+        <module>springboot-war</module>
     </modules>
 
     <parent>
