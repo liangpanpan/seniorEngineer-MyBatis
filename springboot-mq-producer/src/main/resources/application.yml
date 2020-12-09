@@ -1,5 +1,7 @@
 server:
   port: 8888
+  delayTime: 20000
+
 spring:
   rabbitmq:
     host: 49.232.17.193

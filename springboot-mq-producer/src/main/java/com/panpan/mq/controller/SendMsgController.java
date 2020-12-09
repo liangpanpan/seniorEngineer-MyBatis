@@ -1,5 +1,6 @@
 package com.panpan.mq.controller;
 
+import com.panpan.mq.config.RabbitDelayMQConfig;
 import com.panpan.mq.config.RabbitMQConfig;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
@@ -66,6 +67,18 @@ public class SendMsgController {
         }
         //返回消息
         return "发送消息成功！";
+    }
+
+
+    /**
+     * 测试
+     */
+    @GetMapping("/sendDelayMsg")
+    public String sendDelayMsg(@RequestParam String msg) {
+        CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
+        rabbitTemplate.convertAndSend(RabbitDelayMQConfig.DELAY_DIRECT_EXCHANGE, RabbitDelayMQConfig.DELAY_BINDING_KEY,
+                msg, correlationData);
+        return "发送消息" + msg + "成功！";
     }
 
     /**

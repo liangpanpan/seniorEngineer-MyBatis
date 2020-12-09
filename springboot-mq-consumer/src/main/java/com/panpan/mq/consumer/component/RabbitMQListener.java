@@ -48,7 +48,31 @@ public class RabbitMQListener {
         }
 
         Thread.sleep(1000);
+    }
 
+
+    /**
+     * 接收延迟消息队列内的消息
+     *
+     * @param message
+     * @param channel
+     * @param tag
+     * @throws IOException
+     */
+    @RabbitListener(queues = "normal.queue.name", concurrency = "2")
+    public void getRabbitDelayMQMessage(Message message, Channel channel,
+                                        @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException {
+
+        String messageStr = new String(message.getBody(), "UTF-8");
+
+        log.info("receive delay message:" + messageStr + " tag:" + tag);
+
+        if ("1".equals(messageStr)) {
+            // 当消息为1时不进行消费
+            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+        } else {
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+        }
     }
 
 }

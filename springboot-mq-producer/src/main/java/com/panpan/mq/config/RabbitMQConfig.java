@@ -39,6 +39,7 @@ public class RabbitMQConfig {
 
     public static final String DIRECT_QUEUE = "direct_queue";
 
+
     /**
      * 创建直接交换机
      *
