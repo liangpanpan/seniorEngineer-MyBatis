@@ -31,8 +31,8 @@ public class RabbitMQListener {
      * @param channel
      * @throws IOException
      */
-    // @RabbitListener(queues = "direct_queue")
-    @RabbitListener(queues = "direct_queue", concurrency = "10")
+    @RabbitListener(queues = "direct_queue")
+    // @RabbitListener(queues = "direct_queue", concurrency = "10")
     // @RabbitListener(queues = "direct_queue", concurrency = "5", containerFactory = "mqlistenerContainer")
     public void getRabbitMQMessage(Message message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException, InterruptedException {
 
@@ -47,7 +47,7 @@ public class RabbitMQListener {
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
         }
 
-        Thread.sleep(1000);
+        Thread.sleep(10000);
     }
 
 
