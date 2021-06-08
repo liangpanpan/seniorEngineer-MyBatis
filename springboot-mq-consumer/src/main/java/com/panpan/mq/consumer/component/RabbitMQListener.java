@@ -33,8 +33,10 @@ public class RabbitMQListener {
      */
     @RabbitListener(queues = "direct_queue")
     // @RabbitListener(queues = "direct_queue", concurrency = "10")
-    // @RabbitListener(queues = "direct_queue", concurrency = "5", containerFactory = "mqlistenerContainer")
-    public void getRabbitMQMessage(Message message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException, InterruptedException {
+    // @RabbitListener(queues = "direct_queue", concurrency = "5",
+    // containerFactory = "mqlistenerContainer")
+    public void getRabbitMQMessage(Message message, Channel channel,
+                                   @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException, InterruptedException {
 
         String messageStr = new String(message.getBody(), "UTF-8");
 
@@ -42,9 +44,11 @@ public class RabbitMQListener {
 
         if ("1".equals(messageStr)) {
             // 当消息为1时不进行消费
-            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+            channel.basicNack(message.getMessageProperties().getDeliveryTag()
+                    , false, true);
         } else {
-            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(),
+                    false);
         }
 
         Thread.sleep(10000);
@@ -69,9 +73,11 @@ public class RabbitMQListener {
 
         if ("1".equals(messageStr)) {
             // 当消息为1时不进行消费
-            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+            channel.basicNack(message.getMessageProperties().getDeliveryTag()
+                    , false, true);
         } else {
-            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(),
+                    false);
         }
     }
 

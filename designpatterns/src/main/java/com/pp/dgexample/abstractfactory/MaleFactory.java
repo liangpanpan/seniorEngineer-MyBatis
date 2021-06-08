@@ -6,7 +6,7 @@ package com.pp.dgexample.abstractfactory;
  * @Author ppliang
  * @Date 2020/3/7
  */
-public class MaleFactory implements HumanFactory{
+public class MaleFactory implements HumanFactory {
     //生产出黑人男性
     public Human createBlackHuman() {
         return new MaleBlackHuman();

@@ -95,8 +95,10 @@ public class RabbitMQConfig {
         rabbitTemplate.setEncoding("UTF-8");
 //        开启returncallback     yml 需要 配置    publisher-returns: true
         rabbitTemplate.setMandatory(true);
-        rabbitTemplate.setReturnCallback((message, replyCode, replyText, exchange, routingKey) -> {
-            // String correlationId = message.getMessageProperties().getCorrelationIdString();
+        rabbitTemplate.setReturnCallback((message, replyCode, replyText,
+                                          exchange, routingKey) -> {
+            // String correlationId = message.getMessageProperties()
+            // .getCorrelationIdString();
 
             String messageBody = "";
             byte[] messageByte = message.getBody();
@@ -104,7 +106,8 @@ public class RabbitMQConfig {
                 messageBody = new String(messageByte, Charset.defaultCharset());
             }
 
-            log.info("消息：{} 发送失败, 应答码：{} 原因：{} 交换机: {}  路由键: {}", messageBody, replyCode, replyText, exchange,
+            log.info("消息：{} 发送失败, 应答码：{} 原因：{} 交换机: {}  路由键: {}", messageBody
+                    , replyCode, replyText, exchange,
                     routingKey);
         });
 

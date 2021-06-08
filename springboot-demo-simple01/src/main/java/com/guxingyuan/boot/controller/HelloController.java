@@ -39,7 +39,8 @@ public class HelloController {
     }
 
 
-    // @RequestMapping(value = "/hello", produces = "application/json;charset=utf-8")
+    // @RequestMapping(value = "/hello", produces = "application/json;
+    // charset=utf-8")
     // @PostMapping(value = "/hello")
     @GetMapping(value = "/sayHello")
     @ResponseBody  // 添加该信息可以返回JSON对象

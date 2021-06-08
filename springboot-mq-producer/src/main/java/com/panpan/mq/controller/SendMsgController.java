@@ -43,8 +43,10 @@ public class SendMsgController {
          * 参数二：路由key: item.springboot-rabbitmq,符合路由item.#规则即可
          * 参数三：发送的消息
          */
-        CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-        rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE, RabbitMQConfig.BINDING_KEY,
+        CorrelationData correlationData =
+                new CorrelationData(UUID.randomUUID().toString());
+        rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE,
+                RabbitMQConfig.BINDING_KEY,
                 msg + "key:" + key, correlationData);
         //返回消息
         return "发送消息成功！";
@@ -52,7 +54,8 @@ public class SendMsgController {
 
 
     @GetMapping("/sendBatchMsg")
-    public String sendBatchMsg(@RequestParam String msg, @RequestParam Integer batchNum) {
+    public String sendBatchMsg(@RequestParam String msg,
+                               @RequestParam Integer batchNum) {
         /**
          * 发送消息
          * 参数一：交换机名称
@@ -61,8 +64,10 @@ public class SendMsgController {
          */
 
         for (int i = 0; i < batchNum; i++) {
-            CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-            rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE, RabbitMQConfig.BINDING_KEY,
+            CorrelationData correlationData =
+                    new CorrelationData(UUID.randomUUID().toString());
+            rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE
+                    , RabbitMQConfig.BINDING_KEY,
                     msg + " num:" + i, correlationData);
         }
         //返回消息
@@ -75,7 +80,8 @@ public class SendMsgController {
      */
     @GetMapping("/sendDelayMsg")
     public String sendDelayMsg(@RequestParam String msg) {
-        CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
+        CorrelationData correlationData =
+                new CorrelationData(UUID.randomUUID().toString());
         rabbitTemplate.convertAndSend(RabbitDelayMQConfig.DELAY_DIRECT_EXCHANGE, RabbitDelayMQConfig.DELAY_BINDING_KEY,
                 msg, correlationData);
         return "发送消息" + msg + "成功！";
@@ -89,7 +95,8 @@ public class SendMsgController {
      * @return
      */
     @GetMapping("/sendReturnmsg")
-    public String sendReturnMsg(@RequestParam String msg, @RequestParam String key) {
+    public String sendReturnMsg(@RequestParam String msg,
+                                @RequestParam String key) {
 
         rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE, key,
                 msg);
@@ -99,11 +106,13 @@ public class SendMsgController {
 
 
     @GetMapping("/sendConfirmMsg")
-    public String sendConfirmMsg(@RequestParam String msg, @RequestParam String key) {
+    public String sendConfirmMsg(@RequestParam String msg,
+                                 @RequestParam String key) {
         /**
          * 交换机错误
          */
-        rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE + "1", key,
+        rabbitTemplate.convertAndSend(RabbitMQConfig.ITEM_DIRECT_EXCHANGE +
+                        "1", key,
                 msg);
         //返回消息
         return "发送消息到MQ上，交换机错误！";

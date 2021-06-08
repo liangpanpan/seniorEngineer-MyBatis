@@ -16,7 +16,8 @@ import java.io.IOException;
  */
 public class ChromeTest {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException,
+            InterruptedException {
         long time = System.currentTimeMillis();
         // 可省略，若驱动放在其他目录需指定驱动路径
         String chromePath = "D:\\chromedriver_win32\\chromedriver_87.exe";

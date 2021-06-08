@@ -23,6 +23,7 @@ public class MyInterceptorConfig extends WebMvcConfigurationSupport {
 
     /**
      * 对spring mvc的转换器进行处理，设置字符。
+     *
      * @param converters
      */
     @Override

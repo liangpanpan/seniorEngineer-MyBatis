@@ -5,8 +5,8 @@
 
     <bean class="com.basic01.dao.impl.UserDaoImpl" id="userDao"></bean>
 
-    <bean class="com.basic01.server.impl.UserServiceImpl" id="userService" >
-        <property name="userDao" ref="userDao" />
+    <bean class="com.basic01.server.impl.UserServiceImpl" id="userService">
+        <property name="userDao" ref="userDao"/>
     </bean>
 
 </beans>

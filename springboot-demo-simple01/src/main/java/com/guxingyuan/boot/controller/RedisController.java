@@ -24,7 +24,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "/redis")
 public class RedisController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RedisController.class.getName());
+    private static final Logger LOGGER =
+            LoggerFactory.getLogger(RedisController.class.getName());
 
     @Autowired
     private RedisTemplate redisTemplate;
@@ -34,7 +35,8 @@ public class RedisController {
 
     @PostMapping(value = "/setRedisInfo")
     @ResponseBody
-    public String setOneRedisInfo(@RequestParam String redisKey, String redisInfo) {
+    public String setOneRedisInfo(@RequestParam String redisKey,
+                                  String redisInfo) {
         LOGGER.info("enter setOneRedisInfo");
         redisTemplate.opsForValue().set(redisKey, redisInfo);
         LOGGER.info("save finish");
@@ -44,7 +46,8 @@ public class RedisController {
 
     @PostMapping(value = "/testStringRedisInfo")
     @ResponseBody
-    public String testStringRedisInfo(@RequestParam String redisKey, String redisInfo) {
+    public String testStringRedisInfo(@RequestParam String redisKey,
+                                      String redisInfo) {
         LOGGER.info("enter testStringRedisInfo");
         stringRedisTemplate.opsForValue().set(redisKey, redisInfo);
         LOGGER.info("save finish");

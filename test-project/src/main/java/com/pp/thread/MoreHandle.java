@@ -49,8 +49,10 @@ public class MoreHandle {
 
         System.out.println("所有线程执行完毕，size：" + resultMap.size());
 
-        for (Map.Entry<Integer, Integer> integerIntegerEntry : resultMap.entrySet()) {
-            System.out.println("Key:" + integerIntegerEntry.getKey() + " value:" + integerIntegerEntry.getValue());
+        for (Map.Entry<Integer, Integer> integerIntegerEntry :
+                resultMap.entrySet()) {
+            System.out.println("Key:" + integerIntegerEntry.getKey() + " " +
+                    "value:" + integerIntegerEntry.getValue());
         }
     }
 
@@ -83,7 +85,8 @@ public class MoreHandle {
         }
     }
 
-    private static List<List<Integer>> splitList(List<Integer> list, int splitNumber) {
+    private static List<List<Integer>> splitList(List<Integer> list,
+                                                 int splitNumber) {
 
         int endIndex = 0;
         int startIndex;
@@ -96,7 +99,8 @@ public class MoreHandle {
             int tempIndex = endIndex + splitNumber;
             endIndex = tempIndex > list.size() ? list.size() : tempIndex;
 
-            List<Integer> accountNumberList = list.subList(startIndex, endIndex);
+            List<Integer> accountNumberList = list.subList(startIndex,
+                    endIndex);
             resultGroupList.add(accountNumberList);
 
         } while (endIndex < list.size());

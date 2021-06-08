@@ -22,17 +22,17 @@ public class SpringAOPTest {
 
     @Before
     public void before() {
-        aop = new ClassPathXmlApplicationContext("classpath:com\\basic02aop\\spring_aop.xml");
+        aop = new ClassPathXmlApplicationContext("classpath:com\\basic02aop" +
+                "\\spring_aop.xml");
     }
 
 
     /**
      * 打印的结果信息为：
-     * @Before：切点方法之前执行.....
-     * 访问获取User信息
+     *
+     * @Before：切点方法之前执行..... 访问获取User信息
      * @After：切点方法之后执行.....
-     * @AfterReturning：切点方法返回后执行.....
-     * 返回值：User{id=2, name='梁盼盼', age=34}
+     * @AfterReturning：切点方法返回后执行..... 返回值：User{id=2, name='梁盼盼', age=34}
      * User{id=2, name='梁盼盼', age=34}
      */
     @Test

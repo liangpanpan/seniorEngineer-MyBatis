@@ -1,0 +1,44 @@
+#服务信息
+server:
+  info: liangpanpan
+  port: 9090
+
+  servlet:
+    session:
+      timeout: 1800 # session超时时间为30分钟
+
+# Spring信息
+spring:
+  #界面模板信息
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://49.232.17.193:3306/guxingyuan?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    druid:
+      initial-size: 5 #连接池初始化大小
+      min-idle: 10 #最小空闲连接数
+      max-active: 20 #最大连接数
+
+
+mybatis-plus:
+  mapper-locations:
+    - classpath*:/mapper/**/*.xml
+  configuration:
+    local-cache-scope: STATEMENT
+    cache-enabled: false
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: false
+    db-config:
+      id-type: NONE
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

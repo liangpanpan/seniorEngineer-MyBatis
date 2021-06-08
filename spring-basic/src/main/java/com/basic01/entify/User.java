@@ -38,14 +38,19 @@ public class User {
 
         User user = (User) o;
 
-        if (getId() != null ? !getId().equals(user.getId()) : user.getId() != null) return false;
-        return getUsername() != null ? getUsername().equals(user.getUsername()) : user.getUsername() == null;
+        if (getId() != null ? !getId().equals(user.getId()) :
+                user.getId() != null)
+            return false;
+        return getUsername() != null ?
+                getUsername().equals(user.getUsername()) :
+                user.getUsername() == null;
     }
 
     @Override
     public int hashCode() {
         int result = getId() != null ? getId().hashCode() : 0;
-        result = 31 * result + (getUsername() != null ? getUsername().hashCode() : 0);
+        result = 31 * result + (getUsername() != null ?
+                getUsername().hashCode() : 0);
         return result;
     }
 }
