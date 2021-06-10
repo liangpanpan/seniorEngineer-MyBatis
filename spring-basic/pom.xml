@@ -15,7 +15,6 @@
         <spring.version>5.2.5.RELEASE</spring.version>
     </properties>
 
-
     <dependencies>
 
         <dependency>
@@ -88,15 +87,6 @@
             <version>2.9.0</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
-        <!--<testSourceDirectory>src/test/java</testSourceDirectory>-->
-    </build>
 
 
 </project>

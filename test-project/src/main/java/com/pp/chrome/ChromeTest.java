@@ -7,6 +7,8 @@ import java.io.IOException;
 
 /**
  * <pre>
+ *  chrome下载地址为http://npm.taobao.org/mirrors/chromedriver/91.0.4472.19/
+ *  当前使用的是91.0.4472.19/版本。
  * @Version 1.0
  * Modify Information:
  * Author       Date          Description
@@ -20,7 +22,12 @@ public class ChromeTest {
             InterruptedException {
         long time = System.currentTimeMillis();
         // 可省略，若驱动放在其他目录需指定驱动路径
-        String chromePath = "D:\\chromedriver_win32\\chromedriver_87.exe";
+        String fileName = "/chrome_driver/chromedriver.exe";
+        String chromePath =
+                ChromeTest.class.getClass().getResource("/").getPath();
+
+        chromePath = chromePath + fileName;
+
         System.setProperty("webdriver.chrome.driver", chromePath);
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
