@@ -20,8 +20,8 @@
         <module>springboot-mq-producer</module>
         <module>springboot-mq-consumer</module>
         <module>springboot-war</module>
-        <!--<module>springboot-threadpool</module>-->
         <module>springboot-login</module>
+        <module>springboot-threadpool</module>
     </modules>
 
     <parent>
