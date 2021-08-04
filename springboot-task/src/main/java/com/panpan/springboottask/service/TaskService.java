@@ -32,28 +32,7 @@ public class TaskService {
     }
 
     public String cancel() {
-
-        // 先将任务置为false
-        beatReactor.setRunner(false);
-        try {
-            // 先关闭下一次再关闭当前
-            if (beatReactor.getNextScheduledFuture() != null) {
-                beatReactor.getNextScheduledFuture().cancel(true);
-                log.info("cancel next ScheduledFuture");
-            } else {
-                log.info("NextScheduledFuture is null");
-            }
-            if (beatReactor.getCurrentScheduledFuture() != null) {
-                beatReactor.getCurrentScheduledFuture().cancel(true);
-                log.info("cancel current ScheduledFuture");
-            } else {
-                log.info("CurrentScheduledFuture is null");
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            beatReactor.setRunner(true);
-        }
+        beatReactor.cancel();
         return "cancel success";
     }
 }
