@@ -2,6 +2,7 @@ package com.panpan.springboottask;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * <pre>
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * liangpanpan   2021/8/4       create this file
  * </pre>
  */
+@EnableScheduling // 2.开启定时任务
 @SpringBootApplication
 public class SpringBootTaskApplication {
 

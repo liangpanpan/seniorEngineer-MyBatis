@@ -1,7 +1,6 @@
 package com.panpan.springboottask.config;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.time.LocalDateTime;
@@ -27,13 +26,27 @@ import java.time.LocalDateTime;
  * liangpanpan   2021/8/4       create this file
  * </pre>
  */
-
-@Configuration //1.主要用于标记配置类，兼备Component的效果。
-@EnableScheduling // 2.开启定时任务
+@Slf4j
+// @Configuration //1.主要用于标记配置类，兼备Component的效果。
 public class SimpleScheduleConfig {
     //3.添加定时任务
     @Scheduled(cron = "0/5 * * * * ?")
-    private void configureTasks() {
-        System.err.println("执行定时任务1: " + LocalDateTime.now());
+    private void configureTasks() throws InterruptedException {
+        // 休眠8秒钟
+        Thread.currentThread().sleep(8000);
+        log.info("执行定时任务1: " + LocalDateTime.now());
     }
+
+    @Scheduled(cron = "0/1 * * * * ?")
+    public void task01() throws InterruptedException {
+        log.info("task01 " + LocalDateTime.now());
+        Thread.sleep(2000);
+    }
+
+    @Scheduled(cron = "0/2 * * * * ?")
+    public void task02() {
+        log.info("task02 " + LocalDateTime.now());
+    }
+
+
 }
