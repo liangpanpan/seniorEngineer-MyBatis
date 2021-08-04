@@ -23,6 +23,7 @@
         <module>springboot-login</module>
         <module>springboot-threadpool</module>
         <module>springboot-solr</module>
+        <module>springboot-task</module>
     </modules>
 
     <parent>
