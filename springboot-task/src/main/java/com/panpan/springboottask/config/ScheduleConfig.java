@@ -2,7 +2,6 @@ package com.panpan.springboottask.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -30,8 +29,8 @@ public class ScheduleConfig implements SchedulingConfigurer {
         taskRegistrar.setTaskScheduler(taskScheduler());
     }
 
-    @Bean
-    public TaskScheduler taskScheduler() {
+    @Bean(name = "taskScheduler")
+    public ThreadPoolTaskScheduler taskScheduler() {
         ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
         taskScheduler.setPoolSize(10);// 配置线程池大小，根据任务数量定制
         taskScheduler.setThreadNamePrefix("spring-task-scheduler-thread-");// 线程名称前缀

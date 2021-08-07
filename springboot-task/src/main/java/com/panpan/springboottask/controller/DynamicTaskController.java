@@ -1,5 +1,6 @@
 package com.panpan.springboottask.controller;
 
+import com.panpan.springboottask.service.AutoDownloadTask;
 import com.panpan.springboottask.service.TaskService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,6 +32,9 @@ public class DynamicTaskController {
 
     @Resource
     private TaskService taskService;
+
+    @Resource
+    private AutoDownloadTask autoDownloadTask;
 
     private ScheduledFuture<?> scheduledFuture;
 
@@ -95,13 +99,16 @@ public class DynamicTaskController {
     }
 
     @RequestMapping("/loopTaskStart")
-    public String loopTaskStart(long seconds) throws InterruptedException {
-        return taskService.taskStart(seconds);
+    public String loopTaskStart(int flag) {
+        // return taskService.taskStart(seconds);
+        autoDownloadTask.addDownLoadTask(flag);
+        return "Success";
     }
 
     @RequestMapping("/loopTaskCancel")
     public String loopTaskCancel() {
-        return taskService.cancel();
+        autoDownloadTask.cancel();
+        return "Success";
     }
 
 
