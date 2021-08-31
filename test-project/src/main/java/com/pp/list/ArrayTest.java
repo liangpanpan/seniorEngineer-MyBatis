@@ -27,6 +27,9 @@ public class ArrayTest {
             integers.add(i);
         }
 
+        System.out.println("1:" + integers.toString());
+
+
         Object[] objs = new Object[6];
         integers.toArray(objs);
         for (int index = 0; index < objs.length; index++) {
