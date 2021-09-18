@@ -1,5 +1,7 @@
 package com.pp.concurrent;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -8,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -21,7 +24,7 @@ import java.util.stream.Stream;
  * liangpanpan   2021/5/13       create this file
  * </pre>
  */
-public class PersonList {
+public class StreamTest {
 
     static List<Person> personList = new ArrayList<Person>();
 
@@ -34,7 +37,8 @@ public class PersonList {
         personList.add(new Person("Alisa", 7900, 30, "female", "New York"));
     }
 
-    static void test01() {
+    @Test
+    public void test01() {
         List<Integer> list = Arrays.asList(7, 6, 9, 3, 8, 2, 1);
 
         // 遍历输出符合条件的元素
@@ -55,7 +59,8 @@ public class PersonList {
     /**
      * 筛选出Integer集合中大于7的元素，并打印出来
      */
-    static void filterTest() {
+    @Test
+    public void filterTest() {
         List<Integer> list = Arrays.asList(6, 7, 3, 8, 1, 2, 9);
         Stream<Integer> stream = list.stream();
         stream.filter(x -> x > 7).forEach(System.out::println);
@@ -64,17 +69,19 @@ public class PersonList {
     /**
      * 筛选员工中工资高于8000的人，并形成新的集合。 形成新集合依赖collect（收集）
      */
-    static void collect01() {
-        List<String> fiterList =
+    @Test
+    public void collect01() {
+        List<String> filterList =
                 personList.stream().filter(x -> x.getSalary() > 8000).map(Person::getName)
                         .collect(Collectors.toList());
-        System.out.print("高于8000的员工姓名：" + fiterList);
+        System.out.print("高于8000的员工姓名：" + filterList);
     }
 
     /**
      * 获取String集合中最长的元素。
      */
-    static void maxTest() {
+    @Test
+    public void maxTest() {
         List<String> list = Arrays.asList("adnm", "admmt", "pot", "xbangd",
                 "weoujgsd");
 
@@ -86,7 +93,8 @@ public class PersonList {
     /**
      * 获取Integer集合中的最大值。
      */
-    static void IntegerMaxTest01() {
+    @Test
+    public void IntegerMaxTest01() {
         List<Integer> list = Arrays.asList(7, 6, 9, 4, 11, 6);
 
         // 自然排序
@@ -105,7 +113,8 @@ public class PersonList {
     /**
      * 获取员工工资最高的人。
      */
-    static void getMaxSalary() {
+    @Test
+    public void getMaxSalary() {
         Optional<Person> max =
                 personList.stream().max(Comparator.comparingInt(Person::getSalary));
         System.out.println("员工工资最大值：" + max.get().getSalary());
@@ -114,7 +123,8 @@ public class PersonList {
     /**
      * 计算Integer集合中大于6的元素的个数。
      */
-    static void integerTest02() {
+    @Test
+    public void integerTest02() {
         List<Integer> list = Arrays.asList(7, 6, 4, 8, 2, 11, 9);
 
         long count = list.stream().filter(x -> x > 6).count();
@@ -124,7 +134,8 @@ public class PersonList {
     /**
      * 英文字符串数组的元素全部改为大写。整数数组每个元素+3。
      */
-    static void test03() {
+    @Test
+    public void test03() {
         String[] strArr = {"abcd", "bcdd", "defde", "fTr"};
         List<String> strList =
                 Arrays.stream(strArr).map(String::toUpperCase).collect(Collectors.toList());
@@ -140,7 +151,8 @@ public class PersonList {
     /**
      * 将员工的薪资全部增加1000。
      */
-    static void test04() {
+    @Test
+    public void test04() {
         // 不改变原来员工集合的方式
         List<Person> personListNew = personList.stream().map(person -> {
             Person personNew = new Person(person.getName(), 0, 0, null, null);
@@ -300,7 +312,8 @@ public class PersonList {
                 personList.stream().collect(Collectors.groupingBy(Person::getSex));
         // 将员工先按性别分组，再按地区分组
         Map<String, Map<String, List<Person>>> group2 =
-                personList.stream().collect(Collectors.groupingBy(Person::getSex, Collectors.groupingBy(Person::getArea)));
+                personList.stream().collect(Collectors.groupingBy(Person::getSex,
+                        Collectors.groupingBy(Person::getArea)));
         System.out.println("员工按薪资是否大于8000分组情况：" + part);
         System.out.println("员工按性别分组情况：" + group);
         System.out.println("员工按性别、地区：" + group2);
@@ -407,11 +420,108 @@ public class PersonList {
         System.out.println("noBadMan : " + noBadMan); // noBadMan : [刘德华]
     }
 
+    @Test
+    public void test16() {
+        Pattern pattern = Pattern.compile(",");
+        Stream<String> stringStream = pattern.splitAsStream("a,b,c,d");
+        // stringStream.forEach(System.out::println);
+
+        List<String> collect = stringStream.collect(Collectors.toList());
+        System.out.println(collect);
+
+    }
+
+    @Test
+    public void test17() {
+        Student s1 = new Student("aa", 10, 1);
+        Student s2 = new Student("bb", 20, 2);
+        Student s3 = new Student("cc", 10, 3);
+
+        List<Student> list = Arrays.asList(s1, s2, s3);
+
+        //装成list
+        List<Integer> ageList = list.stream().map(Student::getAge).collect(Collectors.toList()); // [10, 20, 10]
+
+        //转成set
+        Set<Integer> ageSet = list.stream().map(Student::getAge).collect(Collectors.toSet()); // [20, 10]
+
+        //转成map,注:key不能相同，否则报错
+        Map<String, Integer> studentMap = list.stream().collect(Collectors.toMap(Student::getName, Student::getAge)); // {cc=10, bb=20, aa=10}
+
+        //字符串分隔符连接
+        String joinName = list.stream().map(Student::getName).collect(Collectors.joining(",", "(", ")")); // (aa,bb,cc)
+
+//聚合操作
+//1.学生总数
+        Long count = list.stream().collect(Collectors.counting()); // 3
+//2.最大年龄 (最小的minBy同理)
+        Integer maxAge = list.stream().map(Student::getAge).collect(Collectors.maxBy(Integer::compare)).get(); // 20
+//3.所有人的年龄
+        Integer sumAge = list.stream().collect(Collectors.summingInt(Student::getAge)); // 40
+//4.平均年龄
+        Double averageAge = list.stream().collect(Collectors.averagingDouble(Student::getAge)); // 13.333333333333334
+// 带上以上所有方法
+        DoubleSummaryStatistics statistics = list.stream().collect(Collectors.summarizingDouble(Student::getAge));
+        System.out.println("count:" + statistics.getCount() + ",max:" + statistics.getMax() + ",sum:" + statistics.getSum() + ",average:" + statistics.getAverage());
+
+//分组
+        Map<Integer, List<Student>> ageMap = list.stream().collect(Collectors.groupingBy(Student::getAge));
+//多重分组,先根据类型分再根据年龄分
+        Map<Integer, Map<Integer, List<Student>>> typeAgeMap =
+                list.stream().collect(Collectors.groupingBy(Student::getType, Collectors.groupingBy(Student::getAge)));
+
+//分区
+//分成两部分，一部分大于10岁，一部分小于等于10岁
+        Map<Boolean, List<Student>> partMap = list.stream().collect(Collectors.partitioningBy(v -> v.getAge() > 10));
+
+//规约
+        Integer allAge = list.stream().map(Student::getAge).collect(Collectors.reducing(Integer::sum)).get(); //40
+    }
 
     public static void main(String[] args) {
         // IntegerMaxTest01();
         // getMaxSalary();
         test14();
     }
+
+    class Student {
+
+        private String name;
+
+        private Integer age;
+
+        private Integer type;
+
+        public Student(String name, Integer age, Integer type) {
+            this.name = name;
+            this.age = age;
+            this.type = type;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Integer getAge() {
+            return age;
+        }
+
+        public void setAge(Integer age) {
+            this.age = age;
+        }
+
+        public Integer getType() {
+            return type;
+        }
+
+        public void setType(Integer type) {
+            this.type = type;
+        }
+    }
+
 
 }

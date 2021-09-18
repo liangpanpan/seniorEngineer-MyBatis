@@ -15,10 +15,12 @@ import java.util.Map;
 public class MapTest {
 
     public static void main(String[] args) {
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("123", null);
-        System.out.println(map);
+        Map<String, String> map = new HashMap<>();
+        for (int i = 0; i < 10; i++) {
+            map.put(i + "", i + "");
+        }
 
+        System.out.println(map.get(Integer.valueOf(1).toString()));
 
     }
 }
