@@ -25,6 +25,7 @@
         <module>springboot-solr</module>
         <module>springboot-task</module>
         <module>springboot-logback</module>
+        <module>springboot-redis</module>
     </modules>
 
     <parent>

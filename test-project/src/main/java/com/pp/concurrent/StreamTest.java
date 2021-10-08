@@ -451,30 +451,32 @@ public class StreamTest {
         //字符串分隔符连接
         String joinName = list.stream().map(Student::getName).collect(Collectors.joining(",", "(", ")")); // (aa,bb,cc)
 
-//聚合操作
-//1.学生总数
+        //聚合操作
+        //1.学生总数
         Long count = list.stream().collect(Collectors.counting()); // 3
-//2.最大年龄 (最小的minBy同理)
+        //2.最大年龄 (最小的minBy同理)
         Integer maxAge = list.stream().map(Student::getAge).collect(Collectors.maxBy(Integer::compare)).get(); // 20
-//3.所有人的年龄
+        //3.所有人的年龄
         Integer sumAge = list.stream().collect(Collectors.summingInt(Student::getAge)); // 40
-//4.平均年龄
+        //4.平均年龄
         Double averageAge = list.stream().collect(Collectors.averagingDouble(Student::getAge)); // 13.333333333333334
-// 带上以上所有方法
+        // 带上以上所有方法
         DoubleSummaryStatistics statistics = list.stream().collect(Collectors.summarizingDouble(Student::getAge));
-        System.out.println("count:" + statistics.getCount() + ",max:" + statistics.getMax() + ",sum:" + statistics.getSum() + ",average:" + statistics.getAverage());
+        System.out.println("count:" + statistics.getCount() + ",max:" + statistics.getMax() + ",sum:" + statistics.getSum()
+                + ",average:" + statistics.getAverage());
 
-//分组
+        //分组
         Map<Integer, List<Student>> ageMap = list.stream().collect(Collectors.groupingBy(Student::getAge));
-//多重分组,先根据类型分再根据年龄分
+        //多重分组,先根据类型分再根据年龄分
         Map<Integer, Map<Integer, List<Student>>> typeAgeMap =
                 list.stream().collect(Collectors.groupingBy(Student::getType, Collectors.groupingBy(Student::getAge)));
 
-//分区
-//分成两部分，一部分大于10岁，一部分小于等于10岁
+
+        //分区
+        //分成两部分，一部分大于10岁，一部分小于等于10岁
         Map<Boolean, List<Student>> partMap = list.stream().collect(Collectors.partitioningBy(v -> v.getAge() > 10));
 
-//规约
+        //规约
         Integer allAge = list.stream().map(Student::getAge).collect(Collectors.reducing(Integer::sum)).get(); //40
     }
 

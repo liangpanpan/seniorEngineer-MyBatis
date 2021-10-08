@@ -1,7 +1,11 @@
 package com.pp.time;
 
+import org.junit.Test;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 /**
@@ -32,7 +36,29 @@ public class TimeTest {
 
         //
 
+    }
 
+    @Test
+    public void comparePastDate() throws ParseException {
+        String oldDate = "2021-06-21";
+        String nowDate = "2021-09-30";
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        Date old;
+        int day = 0;
+
+        old = sdf.parse(oldDate);
+        calendar.setTime(old);
+        Long oTime = calendar.getTimeInMillis();
+
+        Date now = sdf.parse(nowDate);
+        calendar.setTime(now);
+        Long nTime = calendar.getTimeInMillis();
+
+        day = (int) ((nTime - oTime) / (3600F * 1000 * 24));
+
+        System.out.println("相差：" + day);
     }
 
 }

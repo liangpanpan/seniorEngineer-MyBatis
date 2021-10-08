@@ -1,0 +1,18 @@
+#服务信息
+server:
+  port: 8081
+
+# Spring信息
+spring:
+  #Redis
+  redis:
+    host: 49.232.17.193
+    port: 6379
+    timeout: 1000
+    password:
+    lettuce:
+      pool:
+        max-active: 100
+        min-idle: 10
+        max-idle: 50
+        max-wait: 1000
