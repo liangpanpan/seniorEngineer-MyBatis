@@ -42,5 +42,9 @@ public class StringFormatTest {
                 "172.16.0.0/16";
 
 
+        String replaceTest = "11,22,33";
+        System.out.println(replaceTest.replace(",", "，"));
+
+
     }
 }
