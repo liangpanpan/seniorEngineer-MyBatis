@@ -27,6 +27,7 @@
         <module>springboot-logback</module>
         <module>springboot-redis</module>
         <module>log4j2-test</module>
+        <module>disruptor-test</module>
     </modules>
 
     <parent>
