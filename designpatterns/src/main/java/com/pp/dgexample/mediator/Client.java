@@ -7,6 +7,7 @@ package com.pp.dgexample.mediator;
  * @Date 2020/3/30
  */
 public class Client {
+
     public static void main(String[] args) {
         AbstractMediator mediator = new Mediator();
         //采购人员采购电脑

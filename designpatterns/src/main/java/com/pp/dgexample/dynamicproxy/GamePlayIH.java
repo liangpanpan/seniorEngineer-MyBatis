@@ -21,6 +21,7 @@ public class GamePlayIH implements InvocationHandler {
     }
 
     //调用被代理的方法
+    @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         before();
         Object result = method.invoke(this.obj, args);

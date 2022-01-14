@@ -23,7 +23,7 @@ public class DateTest {
 
         Date nowDate = Calendar.getInstance(TimeZone.getDefault()).getTime();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.sss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
         System.out.println(sdf.format(nowDate));
     }
@@ -54,6 +54,30 @@ public class DateTest {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(sdf.format(calendar.getTime()));
 
+    }
+
+
+    /**
+     * 计算两个时间之间的差
+     *
+     * @throws ParseException
+     */
+    @Test
+    public void subtractionTime() throws ParseException {
+        String time1 = "2022-01-26";
+        String time2 = "2022-02-16";
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal1 = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+
+        cal1.setTime(sdf.parse(time1));
+        cal2.setTime(sdf.parse(time2));
+
+        //这样得到的差值是微秒级别
+        long diff = cal2.getTime().getTime() - cal1.getTime().getTime();
+        long days = diff / (1000 * 60 * 60 * 24);
+        System.out.println(days);
     }
 
 }
