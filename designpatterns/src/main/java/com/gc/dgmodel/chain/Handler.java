@@ -9,6 +9,7 @@ package com.gc.dgmodel.chain;
  * </pre>
  */
 public abstract class Handler {
+
     private Handler nextHandler;
 
     //每个处理者都必须对请求做出处理
