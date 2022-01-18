@@ -14,9 +14,12 @@ import java.util.List;
 public class Client {
 
     public static void main(String[] args) {
+        IVisitor visitor = new Visitor();
+
         for (Employee emp : mockEmployee()) {
-            emp.accept(new Visitor());
+            emp.accept(visitor);
         }
+        System.out.println("本公司的月工资总额是：" + visitor.getTotalSalary());
     }
 
     //模拟出公司的人员情况，我们可以想象这个数据是通过持久层传递过来的
