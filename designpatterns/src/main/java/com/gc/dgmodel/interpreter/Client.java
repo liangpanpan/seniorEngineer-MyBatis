@@ -3,6 +3,7 @@ package com.gc.dgmodel.interpreter;
 import java.util.Stack;
 
 /**
+ * 解释器是一个简单语法分析工具，它最显著的优点就是扩展性，修改语法规则只要修改相应的非终结符表达式就可以了，若扩展语法，则只要增加非终结符类就可以了。
  * <pre>
  * Modify Information:
  * Author       Date          Description
