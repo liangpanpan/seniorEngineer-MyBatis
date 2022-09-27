@@ -28,6 +28,9 @@
         <module>springboot-redis</module>
         <module>log4j2-test</module>
         <module>disruptor-test</module>
+        <module>springboot-test</module>
+        <module>pkill</module>
+        <module>logback-test</module>
     </modules>
 
     <parent>

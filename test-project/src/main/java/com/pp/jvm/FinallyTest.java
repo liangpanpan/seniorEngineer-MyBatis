@@ -30,24 +30,26 @@ public class FinallyTest {
         } finally {
             i++;
             System.out.println("finally number" + i);
+            return i;
         }
 
     }
 
-    public String test02() {
+    public List<String> test02() {
         List<String> resultList = new ArrayList<>();
 
         try {
             resultList.add("代码块添加内容");
             System.out.println("代码块:" + resultList.toString());
-            return resultList.toString();
+            return resultList;
         } catch (Exception ex) {
             resultList.add("异常块添加内容");
             System.out.println("异常块:" + resultList.toString());
-            return resultList.toString();
+            return resultList;
         } finally {
             resultList.add("最终结果finally块添加内容");
             System.out.println("最终结果finally块:" + resultList.toString());
+            return resultList;
         }
     }
 

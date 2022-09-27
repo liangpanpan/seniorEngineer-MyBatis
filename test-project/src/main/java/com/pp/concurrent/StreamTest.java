@@ -71,6 +71,11 @@ public class StreamTest {
      */
     @Test
     public void collect01() {
+
+        personList.stream().forEach(person -> person.setName("111"));
+        personList.stream().forEach(person -> System.out.println(person.getName()));
+
+
         List<String> filterList =
                 personList.stream().filter(x -> x.getSalary() > 8000).map(Person::getName)
                         .collect(Collectors.toList());
@@ -82,8 +87,7 @@ public class StreamTest {
      */
     @Test
     public void maxTest() {
-        List<String> list = Arrays.asList("adnm", "admmt", "pot", "xbangd",
-                "weoujgsd");
+        List<String> list = Arrays.asList("adnm", "admmt", "pot", "xbangd", "weoujgsd");
 
         Optional<String> max =
                 list.stream().max(Comparator.comparing(String::length));

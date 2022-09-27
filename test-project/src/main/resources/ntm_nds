@@ -1,0 +1,38 @@
+{tag='PNB', device=0, type=214, num=11, seq=6251728, time=1652666870, internal=0, len=60612,
+    ntmDnsSessionLogBoList=[NTMDnsSessionLogBo{len=112, qdCnt=1, qdLength=16, ansCnt=1, ansLen=16, udpLen=44, opcodeAndRcode='00010000', opCode=1, rCode=0, qr=1, upBytes=140, downBytes=86, time=1652666869,
+        ntmtlvBoList=[
+            NTMLogTlvIPv4Bo{srcIp='192.168.31.101', dstIp='8.8.8.8', srcPort=34217, dstPort=53},
+            NTMDnsStlvQdBo{name='omooom.com', type=0, classValue=46737},
+            NTMDnsAnsinfoBo{ttl=3600, ip='13.251.172.64'}],
+        tlvDataMap={0=0, 8=00-50-56-89-22-43, 9=0}
+    },
+    NTMDnsSessionLogBo{len=112, qdCnt=1, qdLength=16, ansCnt=1, ansLen=16, udpLen=44,opcodeAndRcode='00010000', opCode=1, rCode=0, qr=1, upBytes=140, downBytes=172, time=1652666869, ntmtlvBoList=[
+                                NTMLogTlvIPv4Bo{srcIp='192.168.31.101', dstIp='8.8.8.8', srcPort=34217, dstPort=53}, NTMDnsStlvQdBo{name='omooom.com', type=0, classValue=46739}
+, NTMDnsAnsinfoBo{ttl=3600, ip='13.251.172.64'}], tlvDataMap={0=0, 8=00-50-56-89-22-43, 9=0}}, NTMDnsSessionLogBo{len=100, qdCnt=1, qdLength=18, ansCnt=1, ansLen=28, udpLen=58,
+ opcodeAndRcode='00010000', opCode=1, rCode=0, qr=1, upBytes=144, downBytes=100, time=1652666869, ntmtlvBoList=[
+                                NTMLogTlvIPv4Bo{srcIp='192.168.31.101', dstIp='8.8.8.8', srcPort=46273, dstPort=53}, NTMDnsStlvQdBo{name='ffsquared.ch', type=0, classValue=5267
+9}], tlvDataMap={0=0, 8=00-50-56-89-22-43, 9=0}}, NTMDnsSessionLogBo{len=100, qdCnt=1, qdLength=18, ansCnt=1, ansLen=28, udpLen=58, opcodeAndRcode='00010000', opCode=1, rCode=0
+, qr=1, upBytes=144, downBytes=200, time=1652666869, ntmtlvBoList=[
+                                NTMLogTlvIPv4Bo{srcIp='192.168.31.101', dstIp='8.8.8.8', srcPort=46273, dstPort=53}, NTMDnsStlvQdBo{name='ffsquared.ch', type=0, classValue=5268
+1}], tlvDataMap={0=0, 8=00-50-56-89-22-43, 9=0}}, NTMDnsSessionLogBo{len=112, qdCnt=1, qdLength=25, ansCnt=1, ansLen=16, udpLen=53, opcodeAndRcode='00010000', opCode=1, rCode=0
+, qr=1, upBytes=158, downBytes=95, time=1652666869, ntmtlvBoList=[
+                                NTMLogTlvIPv4Bo{srcIp='192.168.31.101', dstIp='8.8.8.8', srcPort=34035, dstPort=53}, NTMDnsStlvQdBo{name='buywomenextenze.com', type=0, classVal
+ue=25178}, NTMDnsAnsinfoBo{ttl=300, ip='104.140.92.91'}], tlvDataMap={0=0, 8=00-50-56-89-22-43, 9=0}}, NTMDnsSessionLogBo{len=112, qdCnt=1, qdLength=25, ansCnt=1, ansLen=16, ud
+pLen=53, opcodeAndRcode='00010000', opCode=1, rCode=0, qr=1, upBytes=158, downBytes=190, time=1652666869, ntmtlvBoList=[
+                                NTMLogTlvIPv4Bo{srcIp='192.168.31.101', dstIp='8.8.8.8', srcPort=34035, dstPort=53}, NTMDnsStlvQdBo{name='buywomenextenze.com', type=0, classVal
+ue=25179}, NTMDnsAnsinfoBo{ttl=300, ip='104.140.92.91'}], tlvDataMap={0=0, 8=00-50-56-89-22-43, 9=0}}, NTMDnsSessionLogBo{len=120, qdCnt=1, qdLength=26, ansCnt=2, ansLen=32, ud
+pLen=70, opcodeAndRcode='00010000', opCode=1, rCode=0, qr=1, upBytes=302, downBytes=516, time=1652666864, ntmtlvBoList=[
+                                NTMLogTlvIPv4Bo{srcIp='192.168.31.101', dstIp='8.8.8.8', srcPort=47834, dstPort=53}, NTMDnsStlvQdBo{name='ideshopingit.website', type=0, classVa
+lue=37215}, NTMDnsAnsinfoBo{ttl=300, ip='172.67.166.97'}, NTMDnsAnsinfoBo{ttl=300, ip='104.21.11.155'}], tlvDataMap={0=0, 8=00-50-56-89-22-43, 9=0}}, NTMDnsSessionLogBo{len=120
+, qdCnt=1, qdLength=26, ansCnt=2, ansLen=32, udpLen=70, opcodeAndRcode='00010000', opCode=1, rCode=0, qr=1, upBytes=302, downBytes=628, time=1652666864, ntmtlvBoList=[
+                                NTMLogTlvIPv4Bo{srcIp='192.168.31.101', dstIp='8.8.8.8', srcPort=47834, dstPort=53}, NTMDnsStlvQdBo{name='ideshopingit.website', type=0, classVa
+lue=37218}, NTMDnsAnsinfoBo{ttl=300, ip='172.67.166.97'}, NTMDnsAnsinfoBo{ttl=300, ip='104.21.11.155'}], tlvDataMap={0=0, 8=00-50-56-89-22-43, 9=0}}, NTMDnsSessionLogBo{len=112
+, qdCnt=1, qdLength=26, ansCnt=1, ansLen=16, udpLen=54, opcodeAndRcode='00010000', opCode=1, rCode=0, qr=1, upBytes=160, downBytes=96, time=1652666869, ntmtlvBoList=[
+                                NTMLogTlvIPv4Bo{srcIp='192.168.31.101', dstIp='8.8.8.8', srcPort=48394, dstPort=53}, NTMDnsStlvQdBo{name='golstractorparts.com', type=0, classVa
+lue=40289}, NTMDnsAnsinfoBo{ttl=600, ip='34.102.136.180'}], tlvDataMap={0=0, 8=00-50-56-89-22-43, 9=0}}, NTMDnsSessionLogBo{len=112, qdCnt=1, qdLength=26, ansCnt=1, ansLen=16,
+udpLen=54, opcodeAndRcode='00010000', opCode=1, rCode=0, qr=1, upBytes=160, downBytes=192, time=1652666869, ntmtlvBoList=[
+                                NTMLogTlvIPv4Bo{srcIp='192.168.31.101', dstIp='8.8.8.8', srcPort=48394, dstPort=53}, NTMDnsStlvQdBo{name='golstractorparts.com', type=0, classVa
+lue=40291}, NTMDnsAnsinfoBo{ttl=600, ip='34.102.136.180'}], tlvDataMap={0=0, 8=00-50-56-89-22-43, 9=0}}, NTMDnsSessionLogBo{len=112, qdCnt=1, qdLength=17, ansCnt=1, ansLen=16,
+udpLen=45, opcodeAndRcode='00010000', opCode=1, rCode=0, qr=1, upBytes=142, downBytes=87, time=1652666869, ntmtlvBoList=[
+                                NTMLogTlvIPv4Bo{srcIp='192.168.31.101', dstIp='8.8.8.8', srcPort=58464, dstPort=53}, NTMDnsStlvQdBo{name='mad-gdl.com', type=0, classValue=44569
+}, NTMDnsAnsinfoBo{ttl=600, ip='163.197.250.173'}], tlvDataMap={0=0, 8=00-50-56-89-22-43, 9=0}}]}
