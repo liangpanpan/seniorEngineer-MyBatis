@@ -12,11 +12,11 @@ import java.util.Map;
  */
 public interface IOuterUser {
     //基本信息，比如名称、性别、手机号码等
-    Map getUserBaseInfo();
+    Map<String, String> getUserBaseInfo();
 
     //工作区域信息
-    Map getUserOfficeInfo();
+    Map<String, String> getUserOfficeInfo();
 
     //用户的家庭信息
-    Map getUserHomeInfo();
+    Map<String, String> getUserHomeInfo();
 }
