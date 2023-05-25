@@ -1,5 +1,7 @@
 package com.pp.concurrent;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,18 +20,16 @@ import java.util.stream.Stream;
  */
 public class ListFilter {
 
-    public static void main(String[] args) {
-        test02();
-    }
 
-
-    public static void test01() {
+    @Test
+    public void test01() {
         Stream<Integer> stream = Stream.of(2, 3, 4, 5, 6, 7);
         Stream<Integer> stream2 = Stream.iterate(1, x -> x + 2).limit(10);
         stream2.forEach(System.out::println);
     }
 
-    public static void test02() {
+    @Test
+    public void test02() {
         List<String> stringList = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
@@ -47,6 +47,4 @@ public class ListFilter {
 
         collect.stream().forEach(System.out::println);
     }
-
-
 }

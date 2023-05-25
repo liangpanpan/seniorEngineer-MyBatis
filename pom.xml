@@ -31,6 +31,8 @@
         <module>springboot-test</module>
         <module>pkill</module>
         <module>logback-test</module>
+        <module>springboot-scheduletask</module>
+        <module>sqlite-test</module>
     </modules>
 
     <parent>

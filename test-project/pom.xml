@@ -94,6 +94,13 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>jnetpcap</groupId>
+            <artifactId>jnetpcap</artifactId>
+            <version>1.4.r1425-1g</version>
+        </dependency>
+
+
     </dependencies>
 
 </project>

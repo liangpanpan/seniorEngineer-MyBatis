@@ -30,11 +30,11 @@ public class GamePlayIH implements InvocationHandler {
     }
 
     private void before() {
-
+        System.out.println("before");
     }
 
     private void after() {
-
+        System.out.println("after");
     }
 
 }
