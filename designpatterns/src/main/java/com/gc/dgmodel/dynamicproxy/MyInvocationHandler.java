@@ -22,6 +22,9 @@ public class MyInvocationHandler implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args)
             throws Throwable {
         //执行被代理的方法
-        return method.invoke(this.target, args);
+        System.out.println("before method exec");
+        Object invoke = method.invoke(this.target, args);
+        System.out.println("after method exec");
+        return invoke;
     }
 }
