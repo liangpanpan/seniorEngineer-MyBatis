@@ -10,8 +10,8 @@ public class GamePlayerProxy implements IGamePlayer {
     private IGamePlayer gamePlayer = null;
 
     //通过构造函数传递要对谁进行代练
-    public GamePlayerProxy(IGamePlayer _gamePlayer) {
-        this.gamePlayer = _gamePlayer;
+    public GamePlayerProxy(String _gamePlayerName) {
+        this.gamePlayer = new GamePlayer(this, _gamePlayerName);
     }
 
     //代练杀怪

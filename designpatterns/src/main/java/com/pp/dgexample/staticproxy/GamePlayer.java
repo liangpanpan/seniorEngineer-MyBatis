@@ -11,7 +11,10 @@ public class GamePlayer implements IGamePlayer {
     private String name = "";
 
     //通过构造函数传递名称
-    public GamePlayer(String _name) {
+    public GamePlayer(IGamePlayer iGamePlayer, String _name) {
+        if (iGamePlayer == null) {
+            throw new RuntimeException("不支持的代理");
+        }
         this.name = _name;
     }
 
