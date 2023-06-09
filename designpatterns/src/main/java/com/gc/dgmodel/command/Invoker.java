@@ -1,7 +1,7 @@
 package com.gc.dgmodel.command;
 
 /**
- * 调用者
+ * 调用者角色
  * <pre>
  * Modify Information:
  * Author       Date          Description

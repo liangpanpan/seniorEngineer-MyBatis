@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 第三方用户实体类
  * <pre>
  * Modify Information:
  * Author       Date          Description

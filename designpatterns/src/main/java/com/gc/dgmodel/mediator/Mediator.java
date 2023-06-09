@@ -2,6 +2,7 @@ package com.gc.dgmodel.mediator;
 
 /**
  * 通用抽象中介者
+ * 中介者模式的定义为：用一个中介对象封装一系列的对象交互，中介者使各对象不需要显示地相互作用，从而使其耦合松散，而且可以独立地改变它们之间的交互。
  * <pre>
  * Modify Information:
  * Author       Date          Description

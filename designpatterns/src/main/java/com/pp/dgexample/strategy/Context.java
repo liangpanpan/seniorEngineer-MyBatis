@@ -11,14 +11,14 @@ package com.pp.dgexample.strategy;
 public class Context {
 
     //构造函数，你要使用哪个妙计
-    private IStrategy straegy;
+    private IStrategy strategy;
 
     public Context(IStrategy strategy) {
-        this.straegy = strategy;
+        this.strategy = strategy;
     }
 
     //使用计谋了，看我出招了
     public void operate() {
-        this.straegy.operate();
+        this.strategy.operate();
     }
 }

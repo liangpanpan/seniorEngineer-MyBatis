@@ -1,7 +1,7 @@
 package com.gc.dgmodel.command;
 
 /**
- * 通用Receiver类
+ * 通用Receiver类 接收者角色
  * <pre>
  * Modify Information:
  * Author       Date          Description

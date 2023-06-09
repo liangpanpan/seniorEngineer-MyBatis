@@ -1,7 +1,7 @@
 package com.gc.dgmodel.command;
 
 /**
- * 抽象的Command类
+ * 抽象的Command类 命令角色
  * <pre>
  * Modify Information:
  * Author       Date          Description

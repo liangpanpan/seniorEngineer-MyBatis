@@ -1,6 +1,9 @@
 package com.gc.dgmodel.composite;
 
 /**
+ * 组合模式，也叫合成模式，有时又叫部分-整体模式，主要是用来描述部分与整体的关系
+ * 将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。
+ *
  * <pre>
  * Modify Information:
  * Author       Date          Description

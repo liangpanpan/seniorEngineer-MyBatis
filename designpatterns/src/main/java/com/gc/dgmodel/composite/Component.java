@@ -1,6 +1,8 @@
 package com.gc.dgmodel.composite;
 
 /**
+ * 抽象构建角色
+ * 定义参加组合对象的共有方法和属性，可以定义一些默认的行为或属性
  * <pre>
  * Modify Information:
  * Author       Date          Description

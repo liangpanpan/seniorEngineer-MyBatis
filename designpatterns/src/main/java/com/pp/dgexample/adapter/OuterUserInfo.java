@@ -3,6 +3,7 @@ package com.pp.dgexample.adapter;
 import java.util.Map;
 
 /**
+ * 类适配器，就是继承对方的对象，实现我方的接口
  * <pre>
  * Modify Information:
  * Author       Date          Description

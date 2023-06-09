@@ -1,6 +1,7 @@
 package com.pp.dgexample.adapter;
 
 /**
+ * 本公司自己设计的用户信息类
  * <pre>
  * Modify Information:
  * Author       Date          Description

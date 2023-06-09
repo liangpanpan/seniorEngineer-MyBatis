@@ -3,6 +3,8 @@ package com.gc.dgmodel.composite;
 import java.util.ArrayList;
 
 /**
+ * 树枝构件
+ * 树枝对象，他的作用是组合树枝节点和叶子节点形成一个树形结构
  * <pre>
  * Modify Information:
  * Author       Date          Description
