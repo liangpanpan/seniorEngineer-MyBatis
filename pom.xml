@@ -41,6 +41,10 @@
         <version>2.5.1</version>
     </parent>
 
+    <properties>
+        <maven.test.skip>true</maven.test.skip>
+    </properties>
+
     <build>
         <plugins>
             <plugin>

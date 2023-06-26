@@ -19,7 +19,7 @@ public class Singleton {
     }
 
     //类中其他方法，尽量是static
-    public static void doSomething() {
+    public void doSomething() {
         System.out.println("do some thing");
     }
 }

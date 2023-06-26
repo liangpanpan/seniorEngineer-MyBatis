@@ -21,7 +21,7 @@ public class JnetApp {
         List<PcapIf> devs = new ArrayList<>();
         StringBuilder errsb = new StringBuilder();
         int r = Pcap.findAllDevs(devs, errsb);
-        if (r == Pcap.NOT_OK || devs.isEmpty()) {
+        if (r != Pcap.OK || devs.isEmpty()) {
             System.err.println("未获取到网卡");
         } else {
             System.out.println("获取到网卡：");
