@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                           http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+    <bean name="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers" ref="quartzTestTrigger"></property>
+    </bean>
+    <bean id="quartzTestTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="quartzTestJob"/>
+        <!-- 20秒后运行 -->
+        <property name="startDelay" value="10000"/>
+        <!-- 每隔三十秒重复 -->
+        <property name="repeatInterval" value="5000"/>
+    </bean>
+
+    <bean id="quartzTestJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="quartzService"></property>   <!--目标对象-->
+        <property name="targetMethod" value="test"></property>    <!--目标方法-->
+        <property name="concurrent" value="false"></property><!--不并发运行-->
+    </bean>
+
+    <bean id="quartzService" class="com.guxingyuan.quartz.spring.QuartzService"/>
+    <task:annotation-driven/>
+</beans>
+

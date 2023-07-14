@@ -33,6 +33,7 @@
         <module>logback-test</module>
         <module>springboot-scheduletask</module>
         <module>sqlite-test</module>
+        <module>springboot-quartz</module>
     </modules>
 
     <parent>
