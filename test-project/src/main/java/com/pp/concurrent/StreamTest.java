@@ -2,14 +2,7 @@ package com.pp.concurrent;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.DoubleSummaryStatistics;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -67,13 +60,25 @@ public class StreamTest {
     }
 
     /**
+     * 打印出0 3 6 9
+     */
+    @Test
+    public void printNewStream() {
+        Stream<Integer> stream2 = Stream.iterate(0, (x) -> x + 3).limit(4);
+        stream2.forEach(System.out::println);
+
+        Stream<Double> stream3 = Stream.generate(Math::random).limit(3);
+        stream3.forEach(System.out::println);
+    }
+
+    /**
      * 筛选员工中工资高于8000的人，并形成新的集合。 形成新集合依赖collect（收集）
      */
     @Test
     public void collect01() {
 
-        personList.stream().forEach(person -> person.setName("111"));
-        personList.stream().forEach(person -> System.out.println(person.getName()));
+//        personList.stream().forEach(person -> person.setName("111"));
+//        personList.stream().forEach(person -> System.out.println(person.getName()));
 
 
         List<String> filterList =
@@ -179,7 +184,8 @@ public class StreamTest {
     /**
      * 将两个字符数组合并成一个新的字符数组。
      */
-    static void test05() {
+    @Test
+    public void test05() {
         List<String> list = Arrays.asList("m,k,l,a", "1,3,5,7");
         List<String> listNew = list.stream().flatMap(s -> {
             // 将每个元素转换成一个stream
