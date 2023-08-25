@@ -1,0 +1,53 @@
+server:
+  port: 9091
+  mvc:
+    servlet:
+      path: /iocsSend
+
+## 数据库连接池配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://49.232.17.193:3306/guxingyuan?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: lpp@123456
+    initialSize: 5
+    minIdle: 5
+    maxActive: 30
+    maxWait: 6000
+    timeBetweenEvictionRunsMillis: 30000
+    minEvictableIdleTimeMillis: 600000
+    maxEvictableIdleTimeMillis: 900000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    validationQuery: SELECT 1 FROM DUAL
+    keepAlive: true
+
+  #Redis
+  redis:
+    host: 192.168.30.134
+    port: 6379
+    password:
+    timeout: 3000
+    database: 0
+    lettuce:
+      pool:
+        max-active: 100
+        min-idle: 10
+        max-idle: 50
+        max-wait: 5000
+
+## MongoDB配置
+sic:
+  mongodb:
+    connectionsPerHost: 300
+    maxWaitTime: 20000
+    socketTimeout: 0
+    connectTimeout: 2000
+    hosts: 192.168.30.134:27017
+    threadsAllowedToBlock: 5
+    username:
+    password:
+    database: iocs
