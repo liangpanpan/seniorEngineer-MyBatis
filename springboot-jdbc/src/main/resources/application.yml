@@ -27,9 +27,9 @@ spring:
 
   #Redis
   redis:
-    host: 192.168.30.134
+    host: 49.232.17.193
     port: 6379
-    password:
+    password: LpZy@123!
     timeout: 3000
     database: 0
     lettuce:
@@ -39,15 +39,15 @@ spring:
         max-idle: 50
         max-wait: 5000
 
-## MongoDB配置
-sic:
-  mongodb:
-    connectionsPerHost: 300
-    maxWaitTime: 20000
-    socketTimeout: 0
-    connectTimeout: 2000
-    hosts: 192.168.30.134:27017
-    threadsAllowedToBlock: 5
-    username:
-    password:
-    database: iocs
+### MongoDB配置
+#sic:
+#  mongodb:
+#    connectionsPerHost: 300
+#    maxWaitTime: 20000
+#    socketTimeout: 0
+#    connectTimeout: 2000
+#    hosts: 192.168.30.134:27017
+#    threadsAllowedToBlock: 5
+#    username:
+#    password:
+#    database: iocs
