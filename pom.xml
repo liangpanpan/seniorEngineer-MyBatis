@@ -35,6 +35,7 @@
         <module>sqlite-test</module>
         <module>springboot-quartz</module>
         <module>springboot-jdbc</module>
+        <module>springboot-jpa</module>
     </modules>
 
     <parent>
