@@ -64,6 +64,10 @@ public class UseQuartz {
      * 禁止并发执行多个相同定义的JobDetail, 这个注解是加在Job类上的, 但意思并不是不能同时执行多个Job, 而是不能并发执行同一个Job Definition(由JobDetail定义),
      * 但是可以同时执行多个不同的JobDetail。
      * 即对于同一个Job任务不允许并发执行，但对于不同的job任务不受影响。
+     * 本示例，每5秒钟执行一次，但是job执行时间是7秒，由于添加了@DisallowConcurrentExecution，第一次任务执行到5秒后，第二个任务不能开启
+     * 等到第一个任务执行7秒结束后，第二个任务才能开始。
+     *
+     *
      *
      * @PersistJobDataAfterExecution
      * 保存在JobDataMap传递的参数。加在Job上,表示当正常执行完Job后, JobDataMap中的数据应该被改动, 以被下一次调用时用。
