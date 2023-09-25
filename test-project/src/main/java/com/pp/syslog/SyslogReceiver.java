@@ -1,11 +1,7 @@
 package com.pp.syslog;
 
 import org.graylog2.syslog4j.SyslogConstants;
-import org.graylog2.syslog4j.server.SyslogServer;
-import org.graylog2.syslog4j.server.SyslogServerConfigIF;
-import org.graylog2.syslog4j.server.SyslogServerEventIF;
-import org.graylog2.syslog4j.server.SyslogServerIF;
-import org.graylog2.syslog4j.server.SyslogServerSessionEventHandlerIF;
+import org.graylog2.syslog4j.server.*;
 
 import java.net.SocketAddress;
 
@@ -19,7 +15,7 @@ import java.net.SocketAddress;
  * liangpanpan   2021/5/20       create this file
  * </pre>
  */
-public class SyslogReveiver {
+public class SyslogReceiver {
 
     private static final int PORT = 514;
 
@@ -73,6 +69,6 @@ public class SyslogReveiver {
 
 
     public static void main(String[] args) throws InterruptedException {
-        new SyslogReveiver().receiveSyslogMessage();
+        new SyslogReceiver().receiveSyslogMessage();
     }
 }
