@@ -20,7 +20,7 @@ public class QuartzService {
     private static final Logger logger = LoggerFactory.getLogger(QuartzService.class);
 
     public void test() {
-        logger.info("Now Time" + new Date());
+        logger.info("Now Time " + new Date());
     }
 }
 

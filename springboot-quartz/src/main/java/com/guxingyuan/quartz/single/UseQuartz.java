@@ -47,8 +47,8 @@ public class UseQuartz {
                 .withSchedule(simpleSchedule()
                         .withIntervalInSeconds(5))
                 .build();
-        scheduler.scheduleJob(job, trigger);
         //给调度器添加任务和触发器
+        scheduler.scheduleJob(job, trigger);
     }
 
     private static SimpleScheduleBuilder simpleSchedule() {
@@ -57,12 +57,34 @@ public class UseQuartz {
     }
 
 
-    //要实现任务的接口
+    /**
+     * 要实现任务的接口
+     *
+     * @DisallowConcurrentExecution
+     * 禁止并发执行多个相同定义的JobDetail, 这个注解是加在Job类上的, 但意思并不是不能同时执行多个Job, 而是不能并发执行同一个Job Definition(由JobDetail定义),
+     * 但是可以同时执行多个不同的JobDetail。
+     * 即对于同一个Job任务不允许并发执行，但对于不同的job任务不受影响。
+     *
+     * @PersistJobDataAfterExecution
+     * 保存在JobDataMap传递的参数。加在Job上,表示当正常执行完Job后, JobDataMap中的数据应该被改动, 以被下一次调用时用。
+     * job接口内可以获取JobDataMap,对JobDataMap进行修改，传递给下一次执行的任务
+     * JobDataMap jobDataMap = jobExecutionContext.getJobDetail().getJobDataMap();
+     *
+     */
+    @DisallowConcurrentExecution
     public static class MyJob implements Job {
 
         @Override
         public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
             logger.info("小狗子啃骨头咯!");
+
+            try {
+                Thread.sleep(7000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            logger.info("当前线程结束");
         }
     }
 }
