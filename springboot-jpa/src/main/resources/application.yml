@@ -30,4 +30,5 @@ spring:
         enable_lazy_load_no_trans: true
         hbm2ddl:
           auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
