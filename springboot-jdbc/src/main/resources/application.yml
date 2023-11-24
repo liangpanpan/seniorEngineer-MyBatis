@@ -9,7 +9,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://49.232.17.193:3306/guxingyuan?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://140.143.119.132:3306/guxingyuan?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: lpp@123456
     initialSize: 5
@@ -27,7 +27,7 @@ spring:
 
   #Redis
   redis:
-    host: 49.232.17.193
+    host: 140.143.119.132
     port: 6379
     password: LpZy@123!
     timeout: 3000

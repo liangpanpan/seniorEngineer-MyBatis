@@ -1,11 +1,6 @@
 package com.guxingyuan.login.filter;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -64,7 +59,7 @@ public class SessionFilter implements Filter {
                     response.getWriter().write(this.NO_LOGIN);
                 } else {
                     //重定向到登录页(需要在static文件夹下建立此html文件)
-                    response.sendRedirect(request.getContextPath() + "/user" +
+                    response.sendRedirect(request.getContextPath() +
                             "/login.html");
                 }
                 return;
@@ -81,7 +76,7 @@ public class SessionFilter implements Filter {
     public boolean isNeedFilter(String uri) {
 
         for (String includeUrl : includeUrls) {
-            if (includeUrl.equals(uri)) {
+            if (uri.contains(includeUrl)) {
                 return false;
             }
         }

